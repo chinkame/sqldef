@@ -173,6 +173,7 @@ var keywords = map[string]int{
 	"default":                DEFAULT,
 	"deferrable":             DEFERRABLE,
 	"deferred":               DEFERRED,
+	"definer":                DEFINER,
 	"delayed":                UNUSED,
 	"delete":                 DELETE,
 	"desc":                   DESC,
@@ -247,6 +248,7 @@ var keywords = map[string]int{
 	"integer":                INTEGER,
 	"interval":               INTERVAL,
 	"into":                   INTO,
+	"invoker":                INVOKER,
 	"io_after_gtids":         UNUSED,
 	"is":                     IS,
 	"isolation":              ISOLATION,
@@ -477,8 +479,6 @@ var keywords = map[string]int{
 	"pad_index":              PAD_INDEX,
 	"statistics_incremental": STATISTICS_INCREMENTAL,
 	"statistics_norecompute": STATISTICS_NORECOMPUTE,
-	"invoker":                INVOKER,
-	"definer":                DEFINER,
 }
 
 // keywordStrings contains the reverse mapping of token to keyword strings
