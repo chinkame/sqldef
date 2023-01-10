@@ -387,8 +387,7 @@ func forceEOF(yylex interface{}) {
 %type <arrayConstructor> array_constructor
 %type <arrayElements> array_element_list
 %type <arrayElement> array_element
-%type <strs> sql_security_opt
-%type <str> sql_security
+%type <str> sql_security sql_security_opt
 
 %start any_command
 
@@ -777,7 +776,7 @@ isolation_level:
 
 sql_security_opt:
   {
-    $$ = []string{}
+    $$ = ""
   }
 | SQL SECURITY sql_security
   {
