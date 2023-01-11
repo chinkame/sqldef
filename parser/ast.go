@@ -511,25 +511,26 @@ type DDL struct {
 
 // DDL strings.
 const (
-	CreateStr          = "create"
-	AlterStr           = "alter"
-	DropStr            = "drop"
-	RenameStr          = "rename"
-	TruncateStr        = "truncate"
-	CreateVindexStr    = "create vindex"
-	AddColVindexStr    = "add vindex"
-	DropColVindexStr   = "drop vindex"
-	AddIndexStr        = "add index"
-	CreateIndexStr     = "create index"
-	AddPrimaryKeyStr   = "add primary key"
-	AddForeignKeyStr   = "add foreign key"
-	CreatePolicyStr    = "create policy"
-	CreateViewStr      = "create view"
-	CreateMatViewStr   = "create materialized view"
-	CreateTriggerStr   = "create trigger"
-	CreateTypeStr      = "create type"
-	CommentStr         = "comment"
-	CreateExtensionStr = "create extension"
+	CreateStr            = "create"
+	AlterStr             = "alter"
+	DropStr              = "drop"
+	RenameStr            = "rename"
+	TruncateStr          = "truncate"
+	CreateVindexStr      = "create vindex"
+	AddColVindexStr      = "add vindex"
+	DropColVindexStr     = "drop vindex"
+	AddIndexStr          = "add index"
+	CreateIndexStr       = "create index"
+	AddPrimaryKeyStr     = "add primary key"
+	AddForeignKeyStr     = "add foreign key"
+	CreatePolicyStr      = "create policy"
+	CreateViewStr        = "create view"
+	CreateMatViewStr     = "create materialized view"
+	CreateSqlSecurityStr = "create sql security"
+	CreateTriggerStr     = "create trigger"
+	CreateTypeStr        = "create type"
+	CommentStr           = "comment"
+	CreateExtensionStr   = "create extension"
 )
 
 // Format formats the node.
@@ -559,7 +560,7 @@ func (node *DDL) Format(buf *TrackedBuffer) {
 		buf.Myprintf("%s %v %v", node.Action, node.VindexSpec.Name, node.VindexSpec)
 	case CreateViewStr:
 		if node.View.SqlSecurity != "" {
-			buf.Myprintf("%s sql security %v %v as %v", node.Action, node.View.SqlSecurity, node.View.Name, node.View.Definition)
+			buf.Myprintf("%s %v view %v as %v", node.Action, node.View.SqlSecurity, node.View.Name, node.View.Definition)
 		} else {
 			buf.Myprintf("%s %v as %v", node.Action, node.View.Name, node.View.Definition)
 		}
