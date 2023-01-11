@@ -327,7 +327,6 @@ MysqlSqlSecurityView:
     CREATE TABLE users (
       id bigint(20) NOT NULL
     );
-
     CREATE TABLE posts (
       id bigint(20) NOT NULL,
       user_id bigint(20) NOT NULL,
