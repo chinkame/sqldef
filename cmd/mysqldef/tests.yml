@@ -322,7 +322,7 @@ NonReservedColumnName:
       language TEXT,
       json TEXT
     );
-MysqlSqlSecurityView:
+MysqlSecurityTypeView:
   current: |
     CREATE TABLE `users` (
       `id` bigint(20) NOT NULL,

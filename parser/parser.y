@@ -913,8 +913,8 @@ create_statement:
 | CREATE or_replace_opt sql_security_opt VIEW not_exists_opt table_name AS select_statement
   {
     $$ = &DDL{Action: CreateViewStr, View: &View{
-        Action: CreateSqlSecurityStr,
-        SqlSecurity: $3,
+        Action: CreateSecurityTypeViewStr,
+        SecurityType: $3,
         Name: $6.ToViewName(),
         Definition: $8,
     }}

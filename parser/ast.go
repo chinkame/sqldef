@@ -511,26 +511,26 @@ type DDL struct {
 
 // DDL strings.
 const (
-	CreateStr            = "create"
-	AlterStr             = "alter"
-	DropStr              = "drop"
-	RenameStr            = "rename"
-	TruncateStr          = "truncate"
-	CreateVindexStr      = "create vindex"
-	AddColVindexStr      = "add vindex"
-	DropColVindexStr     = "drop vindex"
-	AddIndexStr          = "add index"
-	CreateIndexStr       = "create index"
-	AddPrimaryKeyStr     = "add primary key"
-	AddForeignKeyStr     = "add foreign key"
-	CreatePolicyStr      = "create policy"
-	CreateViewStr        = "create view"
-	CreateMatViewStr     = "create materialized view"
-	CreateSqlSecurityStr = "create sql security"
-	CreateTriggerStr     = "create trigger"
-	CreateTypeStr        = "create type"
-	CommentStr           = "comment"
-	CreateExtensionStr   = "create extension"
+	CreateStr                 = "create"
+	AlterStr                  = "alter"
+	DropStr                   = "drop"
+	RenameStr                 = "rename"
+	TruncateStr               = "truncate"
+	CreateVindexStr           = "create vindex"
+	AddColVindexStr           = "add vindex"
+	DropColVindexStr          = "drop vindex"
+	AddIndexStr               = "add index"
+	CreateIndexStr            = "create index"
+	AddPrimaryKeyStr          = "add primary key"
+	AddForeignKeyStr          = "add foreign key"
+	CreatePolicyStr           = "create policy"
+	CreateViewStr             = "create view"
+	CreateMatViewStr          = "create materialized view"
+	CreateSecurityTypeViewStr = "create sql security"
+	CreateTriggerStr          = "create trigger"
+	CreateTypeStr             = "create type"
+	CommentStr                = "comment"
+	CreateExtensionStr        = "create extension"
 )
 
 // Format formats the node.
@@ -559,8 +559,8 @@ func (node *DDL) Format(buf *TrackedBuffer) {
 	case CreateVindexStr:
 		buf.Myprintf("%s %v %v", node.Action, node.VindexSpec.Name, node.VindexSpec)
 	case CreateViewStr:
-		if node.View.SqlSecurity != "" {
-			buf.Myprintf("%s %v view %v as %v", node.Action, node.View.SqlSecurity, node.View.Name, node.View.Definition)
+		if node.View.SecurityType != "" {
+			buf.Myprintf("%s %v view %v as %v", node.Action, node.View.SecurityType, node.View.Name, node.View.Definition)
 		} else {
 			buf.Myprintf("%s %v as %v", node.Action, node.View.Name, node.View.Definition)
 		}
@@ -1304,10 +1304,10 @@ func (node Comments) Format(buf *TrackedBuffer) {
 }
 
 type View struct {
-	Action      string
-	SqlSecurity string
-	Name        TableName
-	Definition  SelectStatement
+	Action       string
+	SecurityType string
+	Name         TableName
+	Definition   SelectStatement
 }
 
 type Trigger struct {

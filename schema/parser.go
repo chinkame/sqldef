@@ -411,7 +411,7 @@ func parseDDL(mode GeneratorMode, ddl string, stmt parser.Statement) (DDL, error
 			return &View{
 				statement:    ddl,
 				viewType:     strings.ToUpper(strings.TrimPrefix(stmt.View.Action, "create ")),
-				securityType: strings.ToUpper(stmt.View.SqlSecurity),
+				securityType: strings.ToUpper(stmt.View.SecurityType),
 				name:         normalizedTableName(mode, stmt.View.Name),
 				definition:   parser.String(stmt.View.Definition),
 			}, nil

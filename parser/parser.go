@@ -5174,8 +5174,8 @@ yydefault:
 //line parser.y:914
 		{
 			yyVAL.statement = &DDL{Action: CreateViewStr, View: &View{
-				Action:      CreateSqlSecurityStr,
-				SqlSecurity: yyDollar[3].str,
+				Action:      CreateSecurityTypeViewStr,
+				SecurityType: yyDollar[3].str,
 				Name:        yyDollar[6].tableName.ToViewName(),
 				Definition:  yyDollar[8].selStmt,
 			}}
