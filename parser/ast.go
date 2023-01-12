@@ -526,7 +526,7 @@ const (
 	CreatePolicyStr           = "create policy"
 	CreateViewStr             = "create view"
 	CreateMatViewStr          = "create materialized view"
-	CreateSecurityTypeViewStr = "create sql security"
+	CreateSqlSecurityStr = "create sql security"
 	CreateTriggerStr          = "create trigger"
 	CreateTypeStr             = "create type"
 	CommentStr                = "comment"
